@@ -43,7 +43,7 @@ isrunning() {
 # Check if the server http port is up
 function ishttpup() {
     let count=0
-    while [ ${count} -lt 64 ]
+    while [ ${count} -lt 34 ]
     do
         #if /usr/sbin/lsof -P -n -i "@${OPENSHIFT_TOMCAT_IP}:${OPENSHIFT_TOMCAT_HTTP_PORT}" | grep "(LISTEN)" > /dev/null; then
         if echo 2> /dev/null > "/dev/tcp/${OPENSHIFT_TOMCAT_IP}/${OPENSHIFT_TOMCAT_HTTP_PORT}"; then
@@ -71,10 +71,10 @@ function start_app() {
         PROCESS_ID=$!
         
         echo $PROCESS_ID > $JBOSS_PID_FILE
-        #if ! ishttpup; then
-        #    echo "Timed out waiting for http listening port"
-        #    exit 1
-        #fi
+        if ! ishttpup; then
+            echo "Timed out waiting for http listening port"
+            exit 1
+        fi
     fi
 }
 
