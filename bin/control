@@ -65,7 +65,7 @@ function start_app() {
         export CATALINA_BASE=$OPENSHIFT_TOMCAT_DIR
         export CATALINA_TMPDIR=${OPENSHIFT_TOMCAT_DIR}/tmp
         
-        sed -i -e "s/\${OPENSHIFT_TOMCAT_IP}/$OPENSHIFT_TOMCAT_IP/g" \
+        /bin/sed -i -e "s/\${OPENSHIFT_TOMCAT_IP}/$OPENSHIFT_TOMCAT_IP/g" \
        		${OPENSHIFT_TOMCAT_DIR}/conf/server.xml > /dev/null 2>&1
         
         ${OPENSHIFT_TOMCAT_DIR}/bin/startup.sh > ${OPENSHIFT_TOMCAT_DIR}/logs/tomcat.log 2>&1 &
