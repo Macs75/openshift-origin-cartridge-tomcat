@@ -60,15 +60,13 @@ function start_app() {
     if isrunning; then
         echo "Application is already running" 1>&2
     else
+        echo "Starting tomcat cartridge"
         # Start
         export CATALINA_HOME=$OPENSHIFT_TOMCAT_DIR
         export CATALINA_BASE=$OPENSHIFT_TOMCAT_DIR
         export CATALINA_TMPDIR=${OPENSHIFT_TOMCAT_DIR}/tmp
         
-        /bin/sed -i -e "s/\${OPENSHIFT_TOMCAT_IP}/$OPENSHIFT_TOMCAT_IP/g" \
-       		${OPENSHIFT_TOMCAT_DIR}/conf/server.xml > /dev/null 2>&1
-        
-        ${OPENSHIFT_TOMCAT_DIR}/bin/startup.sh > ${OPENSHIFT_TOMCAT_DIR}/logs/tomcat.log 2>&1 &
+        ${OPENSHIFT_TOMCAT_DIR}/bin/tomcat start > ${OPENSHIFT_TOMCAT_DIR}/logs/tomcat.log 2>&1 &
         PROCESS_ID=$!
         
         echo $PROCESS_ID > $JBOSS_PID_FILE
