@@ -16,9 +16,7 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------------------
-# Stop script for the CATALINA Server
-#
-# $Id: shutdown.sh 1302376 2012-03-19 11:16:16Z markt $
+# Configuration Test Script for the CATALINA Server
 # -----------------------------------------------------------------------------
 
 # Better OS/400 detection: see Bugzilla 31132
@@ -59,4 +57,4 @@ else
   fi
 fi
 
-exec "$PRGDIR"/"$EXECUTABLE" stop "$@"
+exec "$PRGDIR"/"$EXECUTABLE" configtest "$@"

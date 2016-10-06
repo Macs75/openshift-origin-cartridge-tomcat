@@ -16,9 +16,7 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------------------
-# Script to digest password using the algorithm specified
-#
-# $Id: digest.sh 1302376 2012-03-19 11:16:16Z markt $
+# Stop script for the CATALINA Server
 # -----------------------------------------------------------------------------
 
 # Better OS/400 detection: see Bugzilla 31132
@@ -41,7 +39,7 @@ while [ -h "$PRG" ] ; do
 done
 
 PRGDIR=`dirname "$PRG"`
-EXECUTABLE=tool-wrapper.sh
+EXECUTABLE=catalina.sh
 
 # Check that target executable exists
 if $os400; then
@@ -59,4 +57,4 @@ else
   fi
 fi
 
-exec "$PRGDIR"/"$EXECUTABLE" -server org.apache.catalina.realm.RealmBase "$@"
+exec "$PRGDIR"/"$EXECUTABLE" stop "$@"
