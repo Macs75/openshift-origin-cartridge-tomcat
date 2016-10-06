@@ -5,24 +5,24 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 curl -L -o ${OPENSHIFT_DATA_DIR}tmp.tgz http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5.tar.gz
 
-mkdir -p ${OPENSHIFT_DATA_DIR}tomcat
+/bin/mkdir -p ${OPENSHIFT_DATA_DIR}tomcat
 
 /bin/tar -xvzf ${OPENSHIFT_DATA_DIR}tmp.tgz --strip-components=1 -C ${OPENSHIFT_DATA_DIR}tomcat
 
-rm ${OPENSHIFT_DATA_DIR}tomcat/conf/*
-rm ${OPENSHIFT_DATA_DIR}tomcat/bin/*.sh
-rm -rf ${OPENSHIFT_DATA_DIR}tomcat/webapps
+/bin/rm ${OPENSHIFT_DATA_DIR}tomcat/conf/*
+/bin/rm ${OPENSHIFT_DATA_DIR}tomcat/bin/*.sh
+/bin/rm -rf ${OPENSHIFT_DATA_DIR}tomcat/webapps
 
-rm ${OPENSHIFT_DATA_DIR}tmp.tgz
+/bin/rm ${OPENSHIFT_DATA_DIR}tmp.tgz
 
-mkdir ${OPENSHIFT_HOMEDIR}/.m2
+/bin/mkdir ${OPENSHIFT_HOMEDIR}/.m2
 
 # Link the user-controlled configurations to the Tomcat conf directory
-cp ${OPENSHIFT_TOMCAT_DIR}/versions/8.5.5/conf/* ${OPENSHIFT_DATA_DIR}tomcat/conf
-cp ${OPENSHIFT_TOMCAT_DIR}/versions/8.5.5/bin/* ${OPENSHIFT_DATA_DIR}tomcat/bin
+/bin/cp ${OPENSHIFT_TOMCAT_DIR}/versions/8.5.5/conf/* ${OPENSHIFT_DATA_DIR}tomcat/conf
+/bin/cp ${OPENSHIFT_TOMCAT_DIR}/versions/8.5.5/bin/* ${OPENSHIFT_DATA_DIR}tomcat/bin
 
 # Create a link from the repo/webapps directory to the Tomcat webapps directory
-ln -s ${OPENSHIFT_REPO_DIR}/webapps ${OPENSHIFT_DATA_DIR}tomcat/webapps
+/bin/ln -s ${OPENSHIFT_REPO_DIR}/webapps ${OPENSHIFT_DATA_DIR}tomcat/webapps
 
 # Create and install the initial template WAR
 pushd $OPENSHIFT_TOMCAT_DIR/template/src/main/webapp
