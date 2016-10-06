@@ -2,9 +2,9 @@ Name: tomcat
 Cartridge-Short-Name: TOMCAT
 Cartridge-Vendor: apache
 Cartridge-Version: 0.0.1
-Display-Name: Tomcat 8
+Display-Name: Tomcat 8.5.5
 Description: "Apache Tomcat is an open source software implementation of the Java Servlet and JavaServer Pages technologies."
-Version: '8.0'
+Version: '8.5.5'
 License: ASL 2.0
 Vendor:  apache
 Categories:
