@@ -5,6 +5,8 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 curl -L -o ${OPENSHIFT_DATA_DIR}tmp.tgz http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5.tar.gz
 
+mkdir -p ${OPENSHIFT_DATA_DIR}tomcat
+
 /bin/tar -xvzf ${OPENSHIFT_DATA_DIR}tmp.tgz --strip-components=1 -C ${OPENSHIFT_DATA_DIR}tomcat
 
 rm ${OPENSHIFT_DATA_DIR}tomcat/conf/*
