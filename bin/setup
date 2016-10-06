@@ -14,6 +14,7 @@ curl -L -o ${OPENSHIFT_DATA_DIR}tmp.tgz http://www-eu.apache.org/dist/tomcat/tom
 /bin/rm ${OPENSHIFT_DATA_DIR}tmp.tgz
 
 /bin/mkdir ${OPENSHIFT_HOMEDIR}/.m2
+/bin/mkdir -p ${OPENSHIFT_TOMCAT_DIR}/{run,tmp}
 
 # Link the user-controlled configurations to the Tomcat conf directory
 /bin/cp ${OPENSHIFT_TOMCAT_DIR}/versions/8.5.5/conf/* ${OPENSHIFT_TOMCAT_DIR}/conf
